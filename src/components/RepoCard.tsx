@@ -6,20 +6,16 @@ interface Props {
 }
 
 const TAG_COLORS: Record<string, string> = {
-  python: "bg-blue-100 text-blue-800",
-  rust: "bg-orange-100 text-orange-800",
-  typescript: "bg-indigo-100 text-indigo-800",
-  "deep-learning": "bg-purple-100 text-purple-800",
-  ml: "bg-violet-100 text-violet-800",
-  "neural-networks": "bg-fuchsia-100 text-fuchsia-800",
-  "data-augmentation": "bg-teal-100 text-teal-800",
-  "game-development": "bg-green-100 text-green-800",
-  "procedural-generation": "bg-amber-100 text-amber-800",
-  "3d": "bg-rose-100 text-rose-800",
-  "creative-coding": "bg-pink-100 text-pink-800",
-  diffusion: "bg-sky-100 text-sky-800",
-  tool: "bg-gray-100 text-gray-800",
+  "ai-agents": "bg-violet-100 text-violet-800",
   cli: "bg-stone-100 text-stone-800",
+  "code-assistant": "bg-blue-100 text-blue-800",
+  "developer-tools": "bg-green-100 text-green-800",
+  "prompt-engineering": "bg-amber-100 text-amber-800",
+  rust: "bg-orange-100 text-orange-800",
+  javascript: "bg-yellow-100 text-yellow-800",
+  nodejs: "bg-lime-100 text-lime-800",
+  productivity: "bg-teal-100 text-teal-800",
+  "open-source": "bg-pink-100 text-pink-800",
 };
 
 export default function RepoCard({ repo }: Props) {

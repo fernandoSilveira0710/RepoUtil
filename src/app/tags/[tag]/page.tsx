@@ -13,20 +13,16 @@ export async function generateStaticParams() {
 }
 
 const TAG_LABELS: Record<string, string> = {
-  python: "Python",
-  rust: "Rust",
-  typescript: "TypeScript",
-  "deep-learning": "Deep Learning",
-  ml: "Machine Learning",
-  "neural-networks": "Redes Neurais",
-  "data-augmentation": "Data Augmentation",
-  "game-development": "Game Development",
-  "procedural-generation": "Geração Procedural",
-  "3d": "3D",
-  "creative-coding": "Creative Coding",
-  diffusion: "Diffusion",
-  tool: "Ferramentas",
+  "ai-agents": "Agentes de IA",
   cli: "CLI",
+  "code-assistant": "Assistente de Código",
+  "developer-tools": "Dev Tools",
+  "prompt-engineering": "Prompt Engineering",
+  rust: "Rust",
+  javascript: "JavaScript",
+  nodejs: "Node.js",
+  productivity: "Produtividade",
+  "open-source": "Open Source",
 };
 
 export default async function TagPage({ params }: Props) {
