@@ -31,7 +31,7 @@ export default function RepoCard({ repo }: Props) {
         </h3>
         {repo.stars > 0 && (
           <span className="text-sm text-[#9ea096] whitespace-nowrap shrink-0">
-            ⭐ {repo.stars}
+            ⭐ {repo.stars >= 1000 ? `${(repo.stars / 1000).toFixed(0)}k` : repo.stars}
           </span>
         )}
       </div>
