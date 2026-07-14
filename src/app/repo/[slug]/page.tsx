@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { repos, getRepoBySlug } from "@/lib/repos";
 import TagBadge from "@/components/TagBadge";
 import RepoCard from "@/components/RepoCard";
+import CodeBlock from "@/components/CodeBlock";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -12,6 +13,26 @@ export async function generateStaticParams() {
   return repos.map((repo) => ({ slug: repo.slug }));
 }
 
+function formatHowToUse(text: string): { language: string; code: string }[] {
+  const blocks: { language: string; code: string }[] = [];
+  const regex = /```(\w*)\n([\s\S]*?)```/g;
+  let match;
+  let lastIndex = 0;
+
+  while ((match = regex.exec(text)) !== null) {
+    const lang = match[1] || "";
+    const code = match[2].trim();
+    blocks.push({ language: lang, code });
+    lastIndex = match.index + match[0].length;
+  }
+
+  return blocks;
+}
+
+function stripCodeBlocks(text: string): string {
+  return text.replace(/```[\s\S]*?```/g, "").trim();
+}
+
 export default async function RepoPage({ params }: Props) {
   const { slug } = await params;
   const repo = getRepoBySlug(slug);
@@ -19,6 +40,8 @@ export default async function RepoPage({ params }: Props) {
   if (!repo) notFound();
 
   const relatedRepos = repos.filter((r) => repo.relatedRepos.includes(r.slug));
+  const howToBlocks = formatHowToUse(repo.howToUse);
+  const howToText = stripCodeBlocks(repo.howToUse);
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -98,18 +121,34 @@ export default async function RepoPage({ params }: Props) {
       {/* How to use */}
       <section className="mb-10">
         <h2 className="text-xl font-bold text-[#23251d] mb-3">🔧 Como usar</h2>
-        <div className="bg-[#f4f3ef] rounded-xl p-5 border border-[#e2e1da] overflow-x-auto">
-          <pre className="text-sm text-[#23251d] whitespace-pre-wrap font-mono">
-            {repo.howToUse}
-          </pre>
+
+        {howToText && (
+          <p className="text-sm text-[#65675e] mb-4">{howToText}</p>
+        )}
+
+        <div className="space-y-4">
+          {howToBlocks.map((block, i) => (
+            <CodeBlock
+              key={i}
+              code={block.code}
+              language={block.language}
+            />
+          ))}
         </div>
+
+        {howToBlocks.length === 0 && (
+          <div className="bg-[#f4f3ef] rounded-xl p-5 border border-[#e2e1da] text-sm text-[#4d4f46] whitespace-pre-line font-mono">
+            {repo.howToUse}
+          </div>
+        )}
       </section>
 
       {/* Example */}
       {repo.example && (
         <section className="mb-10">
           <h2 className="text-xl font-bold text-[#23251d] mb-3">💡 Exemplo de uso</h2>
-          <div className="prose prose-sm max-w-none leading-relaxed text-[#4d4f46]">
+          <div className="prose prose-sm prose-[#4d4f46] max-w-none leading-relaxed text-[#4d4f46]">
+            {/* Extrai o texto antes de qualquer code block */}
             <p>{repo.example}</p>
           </div>
         </section>
