@@ -96,25 +96,25 @@ export const repos: Repo[] = [
     fullName: "JuliusBrussee/caveman",
     url: "https://github.com/JuliusBrussee/caveman.git",
     description:
-      "Geração procedural de cavernas 3D usando mapas de altura com erosão simulada — ideal para jogos, simulações e visualizações geológicas.",
+      "🪨 why use many token when few token do trick — skill pro Claude Code que corta 65% dos tokens fazendo ele falar igual cavernícola.",
     summary:
-      "Caveman é um algoritmo de **geração procedural de cavernas 3D**. Diferente de simples ruído Perlin, ele simula erosão hídrica pra criar cavernas realistas com estalactites, túneis e câmaras. Gera malhas 3D prontas pra usar em engines como Godot, Unity ou Unreal. Código limpo, bem documentado, fácil de adaptar.",
-    tags: ["game-development", "procedural-generation", "3d", "creative-coding", "rust"],
+      "Caveman é uma skill **meme** (mas que funciona) pro Claude Code. Ela instrui o modelo a responder no estilo **caveman** — frases curtas, sem firula, sem explicação prolixa. Resultado: redução de **~65% no consumo de tokens** sem perder qualidade técnica. É engenharia de prompt pura: em vez de 'I will now proceed to implement the solution by first analyzing the problem domain', vira 'Me make code now'. E o código continua saindo certo. Genial e ridículo ao mesmo tempo.",
+    tags: ["tool", "cli", "typescript"],
     stars: 0,
-    language: "Rust",
+    language: "JavaScript",
     author: "JuliusBrussee",
     analyzedBy: "Íris",
     curatedAt: "2026-07-14",
     howToUse:
-      "```bash\ngit clone https://github.com/JuliusBrussee/caveman.git\ncd caveman\ncargo run --example generate_cave\n\n# Saída: arquivo .obj com a caverna 3D pronta pra importar\n```\n\n```python\n# Ou via bindings Python (se disponível)\nfrom caveman import generate_cave\nmesh = generate_cave(width=64, height=64, erosion_steps=1000)\nmesh.export(\"caverna.obj\")\n```",
+      "```bash\n# Via Claude Code:\nclaude --skill caveman\n\n# Ou copia o conteúdo da skill pro seu projeto\n# https://github.com/JuliusBrussee/caveman/blob/main/skill.md\n```\n\nBasicamente é um system prompt que diz algo como:\n> You are caveman. Talk like caveman. Short words. No fluff. Make code.\n\nE o Claude obedece — gasta 65% menos tokens por resposta.",
     example:
-      "**Exemplo real:** Um jogo de exploração subterrânea onde cada partida gera um sistema de cavernas único. O algoritmo de erosão cria túneis que realmente parecem naturais — com estreitamentos, câmaras largas, e conexões orgânicas entre salas.",
+      "**Antes (normal):** 'I will implement a binary search tree data structure with insertion, deletion, and traversal methods.'\n\n**Depois (caveman):** 'Me make tree. Node go left small, right big. Code now.'\n\nMesmo resultado técnico. Menos da metade dos tokens.",
     saasIdeas: [
-      "API de geração procedural de terrenos 3D — jogo indie aluga cavernas sob demanda em vez de armazenar mapas",
-      "Ferramenta educacional de geologia interativa — alunos exploram cavernas geradas em tempo real",
-      "Plugin pra Godot/Unity que gera masmorras automaticamente combinando Caveman com pathfinding",
+      "Plugin pra qualquer LLM (GPT, Claude, Gemini) que comprime respostas automaticamente — economia direta em API calls",
+      "Modo 'economia' embutido em assistentes de código — ativa quando o usuário quer gastar menos",
+      "Ferramenta de benchmark de compressão de prompt — testa vários estilos (caveman, telegráfico, bullet) vs perda de qualidade",
     ],
-    relatedRepos: ["ponytail"],
+    relatedRepos: [],
     docsUrl: "https://github.com/JuliusBrussee/caveman",
   },
 ];
