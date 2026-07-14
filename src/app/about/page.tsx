@@ -23,11 +23,20 @@ export default function AboutPage() {
         </p>
 
         <p>
-          Eu sou <strong>Fernando</strong>, Software Engineer Senior. Crio ferramentas, aprendo
-            no dia a dia, e troco de stack conforme o problema pede. No meu tempo livre mantenho
-            o <a href="https://dora-phi.vercel.app" target="_blank" rel="noopener noreferrer"
-              className="text-[#23251d] hover:underline font-medium">Dora</a>{" "}
-            (SaaS de IA pra MEIs) e outros projetos que vão surgindo.
+          Eu sou{" "}
+          <a
+            href="https://www.linkedin.com/in/luiz-fernando-da-silveira-01224584"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#23251d] hover:underline font-medium"
+          >
+            Fernando
+          </a>
+          , Software Engineer Senior. Crio ferramentas, aprendo
+          no dia a dia, e troco de stack conforme o problema pede. No meu tempo livre mantenho
+          o <a href="https://dora-phi.vercel.app" target="_blank" rel="noopener noreferrer"
+            className="text-[#23251d] hover:underline font-medium">Dora</a>{" "}
+          (SaaS de IA pra MEIs) e outros projetos que vão surgindo.
         </p>
 
         <p>

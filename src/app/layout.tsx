@@ -63,19 +63,26 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <footer className="border-t border-[#e2e1da] py-8 mt-16">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-[#9ea096]">
-            <p>
-              RepoUtil por{" "}
+            <div className="flex items-center gap-1 text-xs sm:text-sm">
+              <span>Feito por</span>
+              <a
+                href="https://www.linkedin.com/in/luiz-fernando-da-silveira-01224584"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium hover:underline"
+              >
+                Fernando
+              </a>
+              <span className="text-[#9ea096]">·</span>
               <a
                 href="https://github.com/fernandoSilveira0710"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#23251d] hover:underline"
+                className="hover:underline"
               >
-                Fernando
+                GitHub
               </a>
-              . Analisado por{" "}
-              <span className="text-[#23251d]">Íris · Clara · Cláudia</span>.
-            </p>
+            </div>
           </div>
         </footer>
       </body>
