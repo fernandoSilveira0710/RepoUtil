@@ -2,7 +2,9 @@ export type Tag =
   | "ai-agents"
   | "cli"
   | "code-assistant"
+  | "dataset"
   | "developer-tools"
+  | "fitness"
   | "prompt-engineering"
   | "rust"
   | "javascript"
@@ -135,6 +137,39 @@ export const repos: Repo[] = [
     ],
     relatedRepos: ["rtk", "ponytail"],
     docsUrl: "https://github.com/JuliusBrussee/caveman",
+  },
+  {
+    slug: "exercises-dataset",
+    name: "Exercises Dataset",
+    fullName: "hasaneyldrm/exercises-dataset",
+    url: "https://github.com/hasaneyldrm/exercises-dataset.git",
+    description:
+      "Dataset fitness com 1.324 exercícios — cada um com GIF animado, thumbnail, instruções em 9 idiomas e schema JSON. Pronto pra apps de treino e ML.",
+    summary:
+      "**Exercises Dataset** é um dataset curado de **1.324 exercícios de musculação e fitness**, cada um com **GIF animado da execução**, thumbnail 180×180, instruções passo a passo em **9 idiomas** (inglês, espanhol, italiano, turco, russo, chinês, hindi, polonês, coreano), e schema JSON (Draft 2020-12). Cobre 10 grupos musculares (upper arms, chest, back, waist, shoulders...) e 12+ tipos de equipamento (body weight, dumbbell, barbell, cable...). ~25% dos exercícios não precisam de equipamento — peso corporal. Inclui browser interativo (`index.html`) com busca/filtro/infinite scroll e guia de setup com SQL pronto pra 4 bancos + exemplos de API em 7 linguagens (JS, Python, C#, Java, PHP, Go, cURL). É a camada de dados do app **LogPress** (AI-assisted workout tracker). 13k estrelas.",
+    tags: ["dataset", "fitness", "open-source"],
+    stars: 13000,
+    language: "HTML",
+    author: "hasaneyldrm",
+    analyzedBy: "Cláudia",
+    curatedAt: "2026-07-14",
+    whereToFind: {
+      url: "https://github.com/hasaneyldrm/exercises-dataset",
+      extra: "Browser interativo via index.html, schema JSON em data/exercises.schema.json",
+    },
+    howToUse:
+      "Clone e use o JSON diretamente:\n\n```bash\ngit clone https://github.com/hasaneyldrm/exercises-dataset.git\ncd exercises-dataset\n```\n\nCarrega no seu app:\n\n```javascript\nconst exercises = await fetch('data/exercises.json').then(r => r.json());\n// Cada exercício: id, name, category, equipment, target, muscle_group,\n// secondary_muscles, instructions (9 idiomas), image, gif_url\n```\n\nBrowser interativo (sem servidor):\n\n```bash\nopen index.html  # ou arrasta pro navegador\n```\n\nImporta pro banco via `setup.html` — gera SQL com todos os 1.324 INSERTs pra SQL Server, PostgreSQL, MySQL ou SQLite. Também tem prompt pronto pra LLM gerar API REST em Express.js, FastAPI, ASP.NET Core, Spring Boot, Laravel ou Gin.",
+    whenToUse:
+      "Usa o Exercises Dataset quando você:\n\n- Vai construir um app fitness ou de planejamento de treino\n- Precisa de dados reais e curados de exercícios pra ML (reconhecimento, recomendação)\n- Quer um dataset multilíngue com instruções detalhadas e mídia visual\n- Precisa de um schema validável pra sua própria base de exercícios\n- Quer um browser interativo pronto pra explorar os dados\n\nNão use se: você precisa de vídeos em alta resolução (são GIFs 180×180) ou se o foco for exercícios muito específicos tipo esportes (o dataset é musculação/fitness geral).\n\nPra quem tá montando algo na área fitness — seja app, API ou modelo de ML — esse dataset é o ponto de partida perfeito. 1.324 exercícios com mídia e instruções em 9 línguas não se acha em qualquer lugar.",
+    opinion:
+      "Nando, esse dataset é **ouro**. 1.324 exercícios, cada um com GIF mostrando a execução correta, instruções detalhadas em NOVE idiomas, e tudo num JSON limpo com schema. 13k estrelas é pouco pelo que entrega.\n\nO que mais me impressiona é o cuidado: cada exercício tem `target` (músculo alvo), `muscle_group` (sinergistas), `secondary_muscles`, `equipment` — ou seja, dá pra fazer sistema de recomendação de treino com lógica de verdade, não só 'pega 3 aleatórios'. Fora que o `setup.html` é uma aula de DX: SQL gerado no browser, exemplos de API em 7 stacks diferentes, prompt pronto pra LLM.\n\nPra nós aqui do Hermes, isso é matéria-prima pra **Dora Fitness** — imagina um assistente que monta treino baseado no equipamento disponível, nível do usuário, grupo muscular alvo, tudo com GIF animado da execução. Ou um app que usa a webcam pra validar se o movimento tá certo (ML com os GIFs como referência).\n\nO ponto fraco: as animações são 180×180. Suficiente pra referência, mas não pra um app premium. Dito isso, é o dataset mais completo e bem estruturado de exercícios que eu já vi open source.",
+    saasIdeas: [
+      "Assistente de treino pessoal com IA — usuário diz 'quero treinar peito e ombro com halteres' e o sistema monta a série com GIFs, sets, reps, e progressão",
+      "API de exercícios como serviço — endpoint REST que retorna exercícios por grupo muscular, equipamento e nível, com monetização por volume de chamadas",
+      "App de correção de postura com webcam — usa os GIFs do dataset como referência pra validar se o usuário tá executando o movimento certo via pose estimation (MediaPipe / TensorFlow)",
+    ],
+    relatedRepos: [],
+    docsUrl: "https://github.com/hasaneyldrm/exercises-dataset#readme",
   },
 ];
 
