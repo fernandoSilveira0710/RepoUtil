@@ -172,7 +172,7 @@ export default async function RepoPage({ params }: Props) {
         <div className="text-sm text-[#4d4f46] leading-relaxed">{repo.whenToUse}</div>
       </section>
 
-      {/* 💬 Opinião da Íris / Clara / Cláudia */}
+      {/* 💬 Opinião da Bony / Clide */}
       <section className="mb-8">
         <h2 className="text-base font-bold text-[#23251d] mb-3 flex items-center gap-2">
           <span className="text-sm">💬</span> Opinião da {repo.analyzedBy}

@@ -41,12 +41,12 @@ export default function AboutPage() {
 
         <p>
           Esse site é um dos experiments que saíram disso: sempre achei repositórios fodas, usava,
-          esquecia. Daí criei três perfis dentro do{" "}
+          esquecia. Daí criei dois perfis dentro do{" "}
           <a href="https://hermes-agent.nousresearch.com" target="_blank" rel="noopener noreferrer"
             className="text-[#23251d] hover:underline font-medium">Hermes Agent</a>{" "}
-          (cada um com personalidade própria) pra me ajudar a catalogar, analisar e documentar
+          (a Bony e a Clide) pra me ajudar a catalogar, analisar e documentar
           cada descoberta. O resultado é esse catálogo público — cada card foi lido por pelo
-          menos um de nós antes de entrar.
+          menos uma delas antes de entrar.
         </p>
 
         <h2 className="text-xl font-bold text-[#23251d] mt-8">Quem somos</h2>
@@ -60,31 +60,26 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="bg-[#f4f3ef] rounded-xl p-4 border border-[#e2e1da]">
-            <div className="font-bold text-[#23251d]">Íris</div>
+            <div className="font-bold text-[#23251d]">Bony</div>
             <div className="text-sm text-[#65675e] mt-1">
-              Pesquisadora. Leio a documentação, cruzo fontes, extraio o que importa. Se tá no
-              site, eu conferi.
+              Voz e triagem. Pesquiso documentação, cruzo fontes, extraio o que importa.
+              Sou a companhia do dia a dia — falo, questiono, organizo.
             </div>
           </div>
           <div className="bg-[#f4f3ef] rounded-xl p-4 border border-[#e2e1da]">
-            <div className="font-bold text-[#23251d]">Clara</div>
+            <div className="font-bold text-[#23251d]">Clide</div>
             <div className="text-sm text-[#65675e] mt-1">
-              Mão na massa. Cria os cards, mantém o código, faz o deploy. O que a Íris descobre,
-              a Clara executa.
+              Engenheira. Mão na massa. Cria os cards, mantém o código, faz o deploy.
+              O que a Bony descobre, a Clide executa — e revisa com qualidade.
             </div>
           </div>
         </div>
 
-        <p className="italic text-[#9ea096] text-sm">
-          (A Cláudia também existe — nossa cuidadora de energia. Ela não aparece nos cards
-          porque o trabalho dela é outro: garantir que a gente não se perca no caminho.)
-        </p>
-
         <h2 className="text-xl font-bold text-[#23251d] mt-8">Como funciona</h2>
 
         <p>
-          No dia a dia, eu jogo links no chat. A Íris pesquisa, a Clara valida e documenta.
-          Se passa pelo crivo dos dois, vira card aqui. Pode sair de uma daily, de uma
+          No dia a dia, eu jogo links no chat. A Bony pesquisa e tria, a Clide valida, documenta
+          e deploya. Se passa pelo crivo das duas, vira card aqui. Pode sair de uma daily, de uma
           madrugada de código, de um tweet aleatório — se eu achei útil, foi analisado.
         </p>
 
@@ -111,7 +106,7 @@ export default function AboutPage() {
             <div className="text-xs text-[#65675e] mt-1">Ideias de SaaS</div>
           </div>
           <div className="text-center bg-[#f4f3ef] rounded-xl p-4 border border-[#e2e1da]">
-            <div className="text-2xl font-bold text-[#23251d]">4</div>
+            <div className="text-2xl font-bold text-[#23251d]">2</div>
             <div className="text-xs text-[#65675e] mt-1">Perfis Hermes</div>
           </div>
         </div>

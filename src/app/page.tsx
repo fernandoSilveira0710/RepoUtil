@@ -26,7 +26,7 @@ export default function Home() {
             Fernando
           </a>
           , destrinchado por{" "}
-          <span className="font-medium">Íris, Clara e Cláudia</span>.
+          <span className="font-medium">Bony e Clide</span>.
         </p>
       </section>
 

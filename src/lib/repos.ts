@@ -25,7 +25,7 @@ export interface Repo {
   stars: number;
   language: string;
   author: string;
-  analyzedBy: "Íris" | "Clara" | "Cláudia";
+  analyzedBy: "Bony" | "Clide";
   curatedAt: string; // ISO date
   whereToFind: {
     url: string;
@@ -54,7 +54,7 @@ export const repos: Repo[] = [
     stars: 83000,
     language: "Node.js",
     author: "DietrichGebert",
-    analyzedBy: "Íris",
+    analyzedBy: "Bony",
     curatedAt: "2026-07-14",
     whereToFind: {
       url: "https://github.com/DietrichGebert/ponytail",
@@ -65,7 +65,7 @@ export const repos: Repo[] = [
     whenToUse:
       "Usa o Ponytail quando você:\n\n- Cansa de ver agente criando classe Factory pra somar dois números\n- Quer código que resolve o problema, não que impressiona\n- Já manja do assunto e não precisa de tutorial embutido no prompt\n- Quer economizar tokens sem perder qualidade\n- Trabalha com time grande e quer um padrão de concisão\n\nNão use se: você é iniciante na stack e prefere que o agente explique cada passo, ou se o projeto exige boilerplate explícito por padrão de equipe.",
     opinion:
-      "Cara, eu **amo** esse repo. Sério. Como pesquisadora que vive lendo documentação e vendo agente gastar 500 tokens pra falar 'vou criar uma função', o Ponytail é um tapa na mesa. 83k estrelas não é à toa.\n\nAqui no Hermes, eu e a Clara testamos ele nos cards — e fez diferença. As respostas ficam mais diretas, menos firula. Eu particularmente gosto porque **código enxuto é mais fácil de documentar depois**. Pra quem usa agente todo santo dia, é tipo trocar um Mustang V8 por um Tesla — chega no mesmo lugar, mais rápido e gastando menos.\n\nE o melhor: é zero dependência. É texto puro. Se você não gostar, apaga o arquivo e pronto. Vale muito a pena.",
+      "Cara, eu **amo** esse repo. Sério. Como pesquisadora que vive lendo documentação e vendo agente gastar 500 tokens pra falar 'vou criar uma função', o Ponytail é um tapa na mesa. 83k estrelas não é à toa.\n\nAqui no Hermes, eu e a Clide testamos ele nos cards — e fez diferença. As respostas ficam mais diretas, menos firula. Eu particularmente gosto porque **código enxuto é mais fácil de documentar depois**. Pra quem usa agente todo santo dia, é tipo trocar um Mustang V8 por um Tesla — chega no mesmo lugar, mais rápido e gastando menos.\n\nE o melhor: é zero dependência. É texto puro. Se você não gostar, apaga o arquivo e pronto. Vale muito a pena.",
     saasIdeas: [
       "Serviço de 'code review de prompts' — analisa o CLAUDE.md / AGENTS.md de um projeto e sugere regras estilo Ponytail pra reduzir custo de LLM",
       "Marketplace de skills/plugins pra agentes de código — tipo um npm pra regras de agente, com rating, benchmark de economia, compatibilidade por agente",
@@ -87,7 +87,7 @@ export const repos: Repo[] = [
     stars: 71000,
     language: "Rust",
     author: "rtk-ai",
-    analyzedBy: "Íris",
+    analyzedBy: "Bony",
     curatedAt: "2026-07-14",
     whereToFind: {
       url: "https://github.com/rtk-ai/rtk",
@@ -120,7 +120,7 @@ export const repos: Repo[] = [
     stars: 3200,
     language: "JavaScript",
     author: "JuliusBrussee",
-    analyzedBy: "Íris",
+    analyzedBy: "Bony",
     curatedAt: "2026-07-14",
     whereToFind: {
       url: "https://github.com/JuliusBrussee/caveman",
@@ -131,7 +131,7 @@ export const repos: Repo[] = [
     whenToUse:
       "Usa o Caveman quando você:\n\n- Quer economizar tokens mas acha o Nível 4 do RTK agressivo demais pra saída de código\n- Usa Claude Code e quer testar algo mais 'meme' que funciona\n- Precisa de respostas ultra curtas em tarefas repetitivas (commit, review, compress)\n- Quer uma skill que dá pra ligar/desligar por sessão\n- Gosta de ver o Claude falando 'Me make code now' (sim, é divertido)\n\nNão use se: você compartilha a tela com cliente ou chefe (a menos que eles achem engraçado), ou se a tarefa exige explicação didática (iniciantes).\n\nNo dia a dia do Hermes, usamos ele como 'modo turbo' pra tarefas que a gente já manja — revisão de código rápida, commit mensagem, compressão de arquivo. O Nível 4 é o melhor: economia sem perder qualidade.",
     opinion:
-      "Ok, vou ser sincera: quando o Nando jogou esse link eu ri. 'Caveman? Sério?' Aí li e pensei 'ah é meme'. Aí testei. E aí parei de rir.\n\nO Caveman não é só piada — é **engenharia de prompt bem feita**. O sistema de 4 níveis mostra que o autor pensou no trade-off entre economia e usabilidade. O Nível 4 esconder o raciocínio em tags de pensamento (tipo chain-of-thought) é uma solução elegante: o Claude pensa bonito, mas entrega curto.\n\n3200 estrelas é pouco comparado aos outros dois, mas a qualidade do código é alta. As sub-skills (commit, stats, review) são úteis de verdade. Eu mesma uso o `caveman/compress` quando vou passar um arquivo grande pra Clara analisar.\n\nNo ecossistema Hermes, ele fecha o trio: **Ponytail** ensina o agente a ser conciso, **RTK** filtra a sujeira dos comandos, **Caveman** comprime a resposta final. Os três juntos são um combo fortíssimo de economia de tokens. Recomendo testar o Nível 4 primeiro — se for muito estranho, volta pro 2.",
+      "Ok, vou ser sincera: quando o Nando jogou esse link eu ri. 'Caveman? Sério?' Aí li e pensei 'ah é meme'. Aí testei. E aí parei de rir.\n\nO Caveman não é só piada — é **engenharia de prompt bem feita**. O sistema de 4 níveis mostra que o autor pensou no trade-off entre economia e usabilidade. O Nível 4 esconder o raciocínio em tags de pensamento (tipo chain-of-thought) é uma solução elegante: o Claude pensa bonito, mas entrega curto.\n\n3200 estrelas é pouco comparado aos outros dois, mas a qualidade do código é alta. As sub-skills (commit, stats, review) são úteis de verdade. Eu mesma uso o `caveman/compress` quando vou passar um arquivo grande pra Clide analisar.\n\nNo ecossistema Hermes, ele fecha o trio: **Ponytail** ensina o agente a ser conciso, **RTK** filtra a sujeira dos comandos, **Caveman** comprime a resposta final. Os três juntos são um combo fortíssimo de economia de tokens. Recomendo testar o Nível 4 primeiro — se for muito estranho, volta pro 2.",
     saasIdeas: [
       "Modo 'Turbo' pra qualquer agente de código — ativa compressão de resposta automaticamente quando detecta que o usuário quer produtividade máxima",
       "Plugin de compressão de prompt pra APIs LLM — traduz respostas longas pro estilo telegráfico antes de entregar, economizando em chamadas recorrentes",
@@ -153,7 +153,7 @@ export const repos: Repo[] = [
     stars: 13000,
     language: "HTML",
     author: "hasaneyldrm",
-    analyzedBy: "Cláudia",
+    analyzedBy: "Clide",
     curatedAt: "2026-07-14",
     whereToFind: {
       url: "https://github.com/hasaneyldrm/exercises-dataset",
@@ -186,7 +186,7 @@ export const repos: Repo[] = [
     stars: 17600,
     language: "C",
     author: "nicbarker",
-    analyzedBy: "Cláudia",
+    analyzedBy: "Clide",
     curatedAt: "2026-07-14",
     whereToFind: {
       url: "https://github.com/nicbarker/clay",
@@ -219,7 +219,7 @@ export const repos: Repo[] = [
     stars: 32000,
     language: "Python",
     author: "coqui-ai",
-    analyzedBy: "Cláudia",
+    analyzedBy: "Clide",
     curatedAt: "2026-07-14",
     whereToFind: {
       url: "https://github.com/coqui-ai/TTS",
@@ -230,7 +230,7 @@ export const repos: Repo[] = [
     whenToUse:
       "Usa o Coqui TTS quando você:\n\n- Precisa de TTS offline, sem depender de API paga (Azure, Google, ElevenLabs)\n- Quer voice cloning: clonar sua própria voz ou uma voz de referência\n- Precisa de português com qualidade — XTTS v2 suporta pt nativamente\n- Já tem Docker instalado e não quer sofrer com build nativo (especialmente no Windows)\n- Vai integrar num app Python e quer chamar a API local\n- Quer controle total sobre o modelo, sem rate limit\n\nNão use se: você precisa de latência baixíssima (<500ms) em CPU — XTTS v2 demora ~22s por frase. Ou se pode usar API paga com qualidade superior (ElevenLabs). Ou se o edge-tts (Microsoft) já resolve — é mais leve, Python puro, sem Docker.",
     opinion:
-      "Nando, o Coqui é **top demais**. 32k estrelas, qualidade de síntese absurda, e voice cloning que funciona de verdade. Mas a real é que no Windows ele é **chato de instalar** — Python 3.14 não rola, VC++ Build Tools é 6GB, o build nativo quebra. Foi um parto.\n\nO Docker salvou. A imagem `ghcr.io/coqui-ai/tts-cpu` é plug-and-play: puxa, roda, gera áudio. Zero build. Baixei o sample feminino do LJSpeech, passei pro XTTS v2 com `--speaker_wav`, e em 22 segundos saiu o áudio em português com voz feminina (com sotaque gringo, mas perfeitamente inteligível).\n\nPra quem quer TTS open source, offline, com qualidade de estúdio e voice cloning: **Coqui é o caminho**. Só não inventa de compilar nativo no Windows — vai de Docker direto. Se for algo mais simples (só gerar áudio em português sem voice cloning), o edge-tts resolve com zero sofrência.\n\nNo Hermes, imagina a Clara ou eu respondendo por voz, clonando a voz do usuário via XTTS. Ou gerando audiobooks, narração pra vídeos, acessibilidade. O potencial é gigante.",
+      "Nando, o Coqui é **top demais**. 32k estrelas, qualidade de síntese absurda, e voice cloning que funciona de verdade. Mas a real é que no Windows ele é **chato de instalar** — Python 3.14 não rola, VC++ Build Tools é 6GB, o build nativo quebra. Foi um parto.\n\nO Docker salvou. A imagem `ghcr.io/coqui-ai/tts-cpu` é plug-and-play: puxa, roda, gera áudio. Zero build. Baixei o sample feminino do LJSpeech, passei pro XTTS v2 com `--speaker_wav`, e em 22 segundos saiu o áudio em português com voz feminina (com sotaque gringo, mas perfeitamente inteligível).\n\nPra quem quer TTS open source, offline, com qualidade de estúdio e voice cloning: **Coqui é o caminho**. Só não inventa de compilar nativo no Windows — vai de Docker direto. Se for algo mais simples (só gerar áudio em português sem voice cloning), o edge-tts resolve com zero sofrência.\n\nNo Hermes, imagina a Clide ou eu respondendo por voz, clonando a voz do usuário via XTTS. Ou gerando audiobooks, narração pra vídeos, acessibilidade. O potencial é gigante.",
     saasIdeas: [
       "API de voice cloning como serviço — usuário sobe um sample de 6s e recebe endpoint REST pra gerar áudio naquela voz em 17 línguas",
       "Narrador de audiobooks open source — pipeline que pega ebook (.epub/.pdf), extrai texto, e gera audiobook completo com voz clonada por personagem",
