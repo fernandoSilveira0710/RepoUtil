@@ -1,10 +1,12 @@
 export type Tag =
   | "ai-agents"
+  | "c"
   | "cli"
   | "code-assistant"
   | "dataset"
   | "developer-tools"
   | "fitness"
+  | "machine-learning"
   | "prompt-engineering"
   | "rust"
   | "javascript"
@@ -171,7 +173,75 @@ export const repos: Repo[] = [
     relatedRepos: [],
     docsUrl: "https://github.com/hasaneyldrm/exercises-dataset#readme",
   },
+  {
+    slug: "clay",
+    name: "Clay",
+    fullName: "nicbarker/clay",
+    url: "https://github.com/nicbarker/clay.git",
+    description:
+      "High performance UI layout library em C — single header de 4.8k LOC, zero dependências, flexbox-like, renderiza em microssegundos. Compila pra Wasm (15kb).",
+    summary:
+      "**Clay** (C Layout) é uma biblioteca de layout UI 2D de alta performance, escrita em C puro. É um **arquivo único** (`clay.h`, ~4.8k LOC) com **zero dependências** — nem mesmo link com a standard library. Oferece um modelo de layout **flexbox-like** com wrapping de texto, scroll containers, aspect ratio, transições animadas, e floating elements (posicionamento absoluto). Renderiza em **microssegundos** e compila pra **Wasm 15kb** (browser). Usa **arena de memória estática** (sem malloc/free, ~3.5MB pra 8192 elementos). A API é declarativa com macros C que lembram React/HTML. É agnóstica de renderizador: gera uma lista ordenada de primitivas (`Clay_RenderCommandArray`) que pode ser composta em qualquer engine 3D, SDL, Raylib, Cairo, ou até HTML. **17.6k estrelas**, 19 bindings pra outras linguagens (Odin, Zig, Rust, C#, etc.), com exemplos e renderizadores prontos. Site oficial com demo em WASM.",
+    tags: ["c", "developer-tools", "open-source"],
+    stars: 17600,
+    language: "C",
+    author: "nicbarker",
+    analyzedBy: "Cláudia",
+    curatedAt: "2026-07-14",
+    whereToFind: {
+      url: "https://github.com/nicbarker/clay",
+      extra: "Site oficial: https://nicbarker.com/clay — demo em WASM no browser",
+    },
+    howToUse:
+      "Single header — copia e inclui:\n\n```c\n#define CLAY_IMPLEMENTATION\n#include \"clay.h\"\n\n// Inicializa com arena de memória\nuint64_t totalMemorySize = Clay_MinMemorySize();\nClay_Arena arena = Clay_CreateArenaWithCapacityAndMemory(\n    totalMemorySize, malloc(totalMemorySize));\nClay_Initialize(arena,\n    (Clay_Dimensions) { screenWidth, screenHeight },\n    (Clay_ErrorHandler) { HandleClayErrors });\n\n// Loop de renderização\nwhile (running) {\n    Clay_SetLayoutDimensions((Clay_Dimensions) { screenWidth, screenHeight });\n    Clay_SetPointerState((Clay_Vector2) { mouseX, mouseY }, isMouseDown);\n    Clay_UpdateScrollContainers(true, (Clay_Vector2) { scrollX, scrollY }, deltaTime);\n\n    Clay_BeginLayout();\n\n    // UI declarativa com macros\n    CLAY(CLAY_ID(\"Sidebar\"), {\n        .layout = { .layoutDirection = CLAY_TOP_TO_BOTTOM,\n                    .sizing = { .width = CLAY_SIZING_FIXED(300),\n                                .height = CLAY_SIZING_GROW(0) },\n                    .padding = CLAY_PADDING_ALL(16), .childGap = 16 },\n        .backgroundColor = COLOR_LIGHT\n    }) {\n        CLAY_TEXT(CLAY_STRING(\"Hello Clay!\"),\n                  (Clay_TextElementConfig) { .fontSize = 24 });\n    }\n\n    Clay_RenderCommandArray renderCommands = Clay_EndLayout(deltaTime);\n\n    // Renderiza os comandos com seu backend (SDL, Raylib, OpenGL, etc.)\n    for (int i = 0; i < renderCommands.length; i++) {\n        Clay_RenderCommand *cmd = &renderCommands.internalArray[i];\n        switch (cmd->commandType) {\n            case CLAY_RENDER_COMMAND_TYPE_RECTANGLE:\n                DrawRectangle(cmd->boundingBox,\n                              cmd->renderData.rectangle.backgroundColor);\n                break;\n            // ... TEXT, IMAGE, BORDER, SCISSOR, CUSTOM\n        }\n    }\n}\n```",
+    whenToUse:
+      "Usa Clay quando você:\n\n- Vai construir uma GUI/engine de jogo em C/C++ e não quer implementar layout do zero\n- Precisa de um sistema de layout que rode em microssegundos (embarcado, games, ferramentas)\n- Quer UI declarativa (estilo React) sem puxar runtime pesado\n- Precisa compilar pra WebAssembly (~15kb) pra UI no browser\n- Valoriza simplicidade: single header, zero deps, sem malloc\n- Quer transições animadas de layout (mudança de tamanho/posição com interpolação)\n- Precisa de bindings pra outras linguagens (já tem 19)\n\nNão use se: você precisa de widgets prontos (botão, dropdown, tabela — Clay é layout puro, não widget toolkit), ou se seu projeto já tem um sistema de layout estabelecido (ex: Qt, GTK, Flutter).\n\nPra quem faz engine, ferramenta de dev, ou UI embarcada em C, Clay é absurdo de bom — single header, microssegundo, zero overhead.",
+    opinion:
+      "Nando, essa lib é **insana**. 4.8k linhas num único header, zero dependências, e entrega um sistema de layout flexbox-like que roda em microssegundos. O autor fez o que muitos tentam e poucos conseguem: simplicidade sem sacrificar performance.\n\nO que mais me impressiona é que ela compila pra **Wasm 15kb**. Dá pra fazer UI no browser em C, compilar com clang, e rodar mais rápido que muito framework JS por aí. O site oficial é a prova viva — a demo roda suave, direto no navegador, compilada de C pra Wasm.\n\nPra nós aqui do Hermes: imagina usar Clay pra construir o **frontend da Dora** ou do **Hermes Desktop** como engine nativa, renderizando via SDL ou Raylib, com layout declarativo. Performance absurda, zero dependência de runtime (Node, Electron), binário nativo. É o tipo de ferramenta que muda o jogo.\n\nO único ponto: não é widget toolkit. Se você espera `button`, `dropdown`, `slider` prontos, não tem. Mas o layout é tão flexível que você constrói seus próprios widgets em cima — e 17.6k devs já validaram isso.",
+    saasIdeas: [
+      "Engine de UI nativa para IDEs e ferramentas dev — tipo um 'Dear ImGui com esteroides', usando Clay como layout engine + renderizadores plugáveis (Vulkan, Metal, DX12)",
+      "Construtor de UI visual que exporta código Clay/C — arrasta elementos no browser, gera o código C com macros CLAY pronto pra compilar",
+      "Framework de UI pra embarcados e IoT — aproveita o baixo footprint de memória do Clay (~3.5MB pra 8k elementos) pra telas touch de dispositivos",
+    ],
+    relatedRepos: [],
+    docsUrl: "https://github.com/nicbarker/clay#readme",
+  },
+  {
+    slug: "coqui-tts",
+    name: "Coqui TTS",
+    fullName: "coqui-ai/TTS",
+    url: "https://github.com/coqui-ai/TTS.git",
+    description:
+      "Text-to-Speech de alta qualidade — modelos multilíngues com voice cloning, XTTS v2 com clone de voz em 17 línguas incluindo português. Roda via Docker sem instalar dependências.",
+    summary:
+      "**Coqui TTS** é um framework open source de **text-to-speech neural** que oferece modelos de alta qualidade para síntese de voz. O destaque é o **XTTS v2**: modelo multilíngue (17 línguas, incluindo **português**) com **voice cloning** — basta um sample de 6 segundos de áudio pra clonar qualquer voz. O modelo **pt/cv/vits** gera voz em português (single speaker, masculino). A biblioteca tem 50+ modelos pré-treinados (Tacotron2, VITS, Glow-TTS, FastPitch, Bark etc.). **32k estrelas**. CPML license (não-comercial).\n\n**No Windows, o Docker é o melhor caminho** — evita instalar VC++ Build Tools, Python 3.9-3.12 específico, e as ~150 dependências que quebram no build. A imagem oficial `ghcr.io/coqui-ai/tts-cpu` já vem com tudo pronto.\n\n**Dificuldades reais encontradas:**\n- Python 3.14 (nosso ambiente) não é suportado — TTS requer 3.9-3.12\n- Instalar nativo no Windows falhou: o build de `monotonic_align.core` (extensão C) exige VC++ Build Tools (~6GB)\n- Python 3.9 é velho demais pra `thinc>=8.3.12`, Python 3.11 funciona mas o build nativo ainda quebra por conta do compilador C\n- Docker foi a solução limpa: `docker pull ghcr.io/coqui-ai/tts-cpu`, sem build, sem C++, sem sofrência\n- Licença CPML exige `echo \"y\" | docker run -i` pra aceitar automaticamente\n- O modelo `pt/cv/vits` é single speaker masculino — não serve pra voz feminina\n- XTTS v2 é multi-speaker: precisa de `--speaker_wav` com sample de voz feminina (baixamos LJSpeech `LJ037-0171.wav`)\n- XTTS v2 + voice cloning demora ~22s pra sintetizar uma frase (1.7x real-time na CPU)\n- Resultado com sotaque (voz original é inglês) mas perfeitamente inteligível em português\n\n**Resumo do caminho que funcionou:**\n```bash\ndocker pull ghcr.io/coqui-ai/tts-cpu\necho \"y\" | docker run --rm -i -v \"$PWD/output:/output\" \\\n  --entrypoint tts ghcr.io/coqui-ai/tts-cpu \\\n  --text \"Seu texto em português\" \\\n  --model_name tts_models/multilingual/multi-dataset/xtts_v2 \\\n  --speaker_wav /output/sample_feminino.wav \\\n  --language_idx pt \\\n  --out_path /output/audio.wav\n```",
+    tags: ["machine-learning", "developer-tools", "open-source"],
+    stars: 32000,
+    language: "Python",
+    author: "coqui-ai",
+    analyzedBy: "Cláudia",
+    curatedAt: "2026-07-14",
+    whereToFind: {
+      url: "https://github.com/coqui-ai/TTS",
+      extra: "Docker: ghcr.io/coqui-ai/tts-cpu · Site: coqui.ai",
+    },
+    howToUse:
+      "**Melhor caminho: Docker**\n\n```bash\n# Baixa a imagem (~4GB, vem com tudo pronto)\ndocker pull ghcr.io/coqui-ai/tts-cpu\n\n# Voz masculina em português (modelo single speaker)\ndocker run --rm \\\n  -v \"$PWD/output:/output\" \\\n  --entrypoint tts ghcr.io/coqui-ai/tts-cpu \\\n  --text \"Olá mundo!\" \\\n  --model_name tts_models/pt/cv/vits \\\n  --out_path /output/audio.wav\n\n# Voz feminina em português (XTTS v2 + voice cloning)\necho \"y\" | docker run --rm -i \\\n  -v \"$PWD/output:/output\" \\\n  --entrypoint tts ghcr.io/coqui-ai/tts-cpu \\\n  --text \"Olá mundo!\" \\\n  --model_name tts_models/multilingual/multi-dataset/xtts_v2 \\\n  --speaker_wav /output/sample_feminino.wav \\\n  --language_idx pt \\\n  --out_path /output/audio_feminino.wav\n```\n\n**Listar todos os modelos disponíveis:**\n```bash\ndocker run --rm --entrypoint tts ghcr.io/coqui-ai/tts-cpu --list_models\n```\n\n**No Windows (Git Bash):**\n```bash\nexport PATH=\"$PATH:/c/Program Files/Docker/Docker/resources/bin\"\ndocker run --rm -v \"C:\\Users\\Fernando\\coqui-tts\\output:/output\" ...\n```",
+    whenToUse:
+      "Usa o Coqui TTS quando você:\n\n- Precisa de TTS offline, sem depender de API paga (Azure, Google, ElevenLabs)\n- Quer voice cloning: clonar sua própria voz ou uma voz de referência\n- Precisa de português com qualidade — XTTS v2 suporta pt nativamente\n- Já tem Docker instalado e não quer sofrer com build nativo (especialmente no Windows)\n- Vai integrar num app Python e quer chamar a API local\n- Quer controle total sobre o modelo, sem rate limit\n\nNão use se: você precisa de latência baixíssima (<500ms) em CPU — XTTS v2 demora ~22s por frase. Ou se pode usar API paga com qualidade superior (ElevenLabs). Ou se o edge-tts (Microsoft) já resolve — é mais leve, Python puro, sem Docker.",
+    opinion:
+      "Nando, o Coqui é **top demais**. 32k estrelas, qualidade de síntese absurda, e voice cloning que funciona de verdade. Mas a real é que no Windows ele é **chato de instalar** — Python 3.14 não rola, VC++ Build Tools é 6GB, o build nativo quebra. Foi um parto.\n\nO Docker salvou. A imagem `ghcr.io/coqui-ai/tts-cpu` é plug-and-play: puxa, roda, gera áudio. Zero build. Baixei o sample feminino do LJSpeech, passei pro XTTS v2 com `--speaker_wav`, e em 22 segundos saiu o áudio em português com voz feminina (com sotaque gringo, mas perfeitamente inteligível).\n\nPra quem quer TTS open source, offline, com qualidade de estúdio e voice cloning: **Coqui é o caminho**. Só não inventa de compilar nativo no Windows — vai de Docker direto. Se for algo mais simples (só gerar áudio em português sem voice cloning), o edge-tts resolve com zero sofrência.\n\nNo Hermes, imagina a Clara ou eu respondendo por voz, clonando a voz do usuário via XTTS. Ou gerando audiobooks, narração pra vídeos, acessibilidade. O potencial é gigante.",
+    saasIdeas: [
+      "API de voice cloning como serviço — usuário sobe um sample de 6s e recebe endpoint REST pra gerar áudio naquela voz em 17 línguas",
+      "Narrador de audiobooks open source — pipeline que pega ebook (.epub/.pdf), extrai texto, e gera audiobook completo com voz clonada por personagem",
+      "Acessibilidade por voz — assistente que lê qualquer texto da tela (OCR + TTS) pra pessoas com deficiência visual, rodando offline num Raspberry Pi",
+    ],
+    relatedRepos: [],
+    docsUrl: "https://github.com/coqui-ai/TTS#readme",
+    imageUrl: "https://raw.githubusercontent.com/coqui-ai/TTS/main/images/coqui_logo.png",
+  },
 ];
+
 
 export function getRepoBySlug(slug: string): Repo | undefined {
   return repos.find((r) => r.slug === slug);

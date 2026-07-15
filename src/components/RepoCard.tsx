@@ -7,11 +7,13 @@ interface Props {
 
 const TAG_COLORS: Record<string, string> = {
   "ai-agents": "bg-violet-100 text-violet-800",
+  c: "bg-gray-100 text-gray-800",
   cli: "bg-stone-100 text-stone-800",
   "code-assistant": "bg-blue-100 text-blue-800",
   dataset: "bg-cyan-100 text-cyan-800",
   "developer-tools": "bg-green-100 text-green-800",
   fitness: "bg-red-100 text-red-800",
+  "machine-learning": "bg-indigo-100 text-indigo-800",
   "prompt-engineering": "bg-amber-100 text-amber-800",
   rust: "bg-orange-100 text-orange-800",
   javascript: "bg-yellow-100 text-yellow-800",
