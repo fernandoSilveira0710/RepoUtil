@@ -273,6 +273,39 @@ export const repos: Repo[] = [
     relatedRepos: [],
     docsUrl: "https://openalice.ai/docs",
   },
+  {
+    slug: "agent-reach",
+    name: "Agent Reach",
+    fullName: "Panniantong/Agent-Reach",
+    url: "https://github.com/Panniantong/Agent-Reach.git",
+    description:
+      "Dá olhos ao teu agente IA pra ver a internet inteira. Lê e busca Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — uma CLI, zero taxas de API.",
+    summary:
+      "**Agent Reach** resolve o maior pesadelo de agentes de IA: acessar a internet real. Não é scraper genérico — é uma suíte de conectores por plataforma com roteamento multi-backend e fallback automático. Cobre **Twitter/X** (busca + timeline + leitura de threads), **Reddit** (busca + posts + comentários), **YouTube** (legendas + busca de vídeos), **GitHub** (repos + issues + PRs + search), **Bilibili** (busca + vídeos + legendas), **XiaoHongShu** (busca + leitura + comentários), **LinkedIn** (perfis + vagas), **V2EX** (posts + comentários), **雪球** (ações + notícias), **小宇宙播客** (transcrição via Whisper), **RSS** (leitura de feeds), e **páginas web** (leitura limpa). Tudo via CLI (`agent-reach`), zero API fees, com `agent-reach doctor` pra diagnóstico. Cookie só local, código 100% open source (MIT). 56.8k estrelas, 4.7k forks. O mantra: 'plataforma bloqueou? Troca o backend. Usuário não percebe.'",
+    tags: ["ai-agents", "developer-tools", "open-source"],
+    stars: 56800,
+    language: "Python",
+    author: "Panniantong",
+    analyzedBy: "Bony",
+    curatedAt: "2026-07-15",
+    whereToFind: {
+      url: "https://github.com/Panniantong/Agent-Reach",
+      extra: "Instalação: copia o install.md pro teu agente — https://raw.githubusercontent.com/Panniantong/agent-reach/main/docs/install.md",
+    },
+    howToUse:
+      "Instalação é uma linha pro teu agente:\n\n```\n帮我安装 Agent Reach：https://raw.githubusercontent.com/Panniantong/agent-reach/main/docs/install.md\n```\n\nO agente faz tudo sozinho. Depois:\n\n```bash\nagent-reach doctor           # diagnostica o que funciona\nagent-reach search twitter \"OpenAI Sora\"   # busca no Twitter\nagent-reach read https://reddit.com/r/programacao  # lê post do Reddit\nagent-reach youtube transcript <url>  # extrai legenda de vídeo\nagent-reach github search <query>  # busca no GitHub\n```\n\nPra plataformas com login (Twitter, Reddit, XiaoHongShu): `agent-reach setup <platform>` — o agente guia. Cookie fica local, nunca sobe.\n\nMulti-backend automático: se yt-dlp falhar no Bilibili, troca pra bili-cli sozinho. Tu não percebe.",
+    whenToUse:
+      "Usa Agent Reach quando você:\n\n- Precisa que teu agente IA pesquise em redes sociais (Twitter, Reddit) sem pagar API oficial\n- Quer extrair legendas de YouTube/Bilibili pra sumarização\n- Precisa buscar issues/PRs no GitHub via CLI\n- Quer monitorar menções da tua marca em XiaoHongShu, Twitter, Reddit\n- Precisa de RSS reader integrado no ecossistema de agentes\n- Roda agentes localmente e valoriza privacidade (cookie local, sem cloud)\n\nNão use se: você precisa de scraping de site aleatório em escala (Firecrawl é melhor pra isso), ou se todas as plataformas que você acessa já têm API oficial e você tem budget.\n\nPra 99% dos agentes de IA, Agent Reach + Firecrawl = cobertura total da internet.",
+    opinion:
+      "Nando, **56.8k estrelas e 4.7k forks**. Isso não é hype — é dor real resolvida. Toda vez que um agente de IA tenta acessar a internet, ele morre na praia: API paga, bloqueio de IP, necessidade de login, HTML sujo. O Agent Reach ataca exatamente isso, e o design de multi-backend com fallback transparente é genial.\n\nO que mais me impressiona é o modelo: eles não constroem scrapers — eles fazem curadoria e manutenção de conectores. Quando uma plataforma muda (Bilibili bloqueou yt-dlp em jun/2026), eles trocam o backend (bili-cli) e o usuário nem percebe. É o tipo de manutenção que nenhum time pequeno consegue fazer sozinho.\n\nPra nós do Hermes: isso fecha o ciclo com Firecrawl. Firecrawl lê qualquer site, Agent Reach lê qualquer plataforma social. Juntos, a Bony e a Clide conseguem pesquisar, monitorar, e extrair dados de praticamente qualquer canto da internet — sem pagar API. É uma virada de chave.\n\nAliás, o fato de ser Python (pip install) e compatível com qualquer agente que rode terminal (Claude Code, OpenClaw, Cursor, Windsurf) torna a adoção trivial. Não tem desculpa pra não usar.",
+    saasIdeas: [
+      "Monitor de marca cross-platform — agente que rastreia menções da sua empresa em Twitter, Reddit, XiaoHongShu e LinkedIn, gera relatório diário",
+      "Pipeline de pesquisa de mercado — agente pesquisa concorrentes, extrai feedback de usuários, sumariza tendências de múltiplas plataformas",
+      "Newsletter automatizada multilíngue — agente coleta conteúdo de Twitter, Reddit, YouTube, RSS, traduz e compila numa newsletter diária personalizada",
+    ],
+    relatedRepos: ["firecrawl"],
+    docsUrl: "https://github.com/Panniantong/Agent-Reach#readme",
+  },
 ];
 
 
