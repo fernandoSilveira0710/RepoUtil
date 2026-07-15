@@ -240,6 +240,39 @@ export const repos: Repo[] = [
     docsUrl: "https://github.com/coqui-ai/TTS#readme",
     imageUrl: "https://raw.githubusercontent.com/coqui-ai/TTS/main/images/coqui_logo.png",
   },
+  {
+    slug: "openalice",
+    name: "OpenAlice",
+    fullName: "TraderAlice/OpenAlice",
+    url: "https://github.com/TraderAlice/OpenAlice.git",
+    description:
+      "Agente de trading com IA — equities, crypto, commodities, forex e macro. Do research à saída da posição, com approval gate e \"Trading as Git\".",
+    summary:
+      "**OpenAlice** transforma coding agents (Claude Code, Codex, OpenCode, Pi) em agentes de trading locais. A ideia é genial: trading não tem git, issues, workspaces — o que agentes de código já sabem usar. OpenAlice cria esse ambiente: **workspaces** (git + terminal + agent CLI por tarefa), **issue board** (tarefas markdown com schedule), **tracked entities** (ativos, teses, setores estilo Obsidian com [[wikilinks]]), **inbox** (reports duráveis, não perdidos em chat). Cobre equities, crypto, commodities, forex e macro. O modelo \"**Trading as Git**\" é o diferencial: operações são staged, committed, reviewed e pushed com approval gate — o agente não dispara ordem direto. Suporte a Alpaca, IBKR, Longbridge, CCXT. Roda local, estado em `~/.openalice`, sem Postgres/Redis. Versão 0.80-beta, 6k estrelas, 1.7k commits. Site: openalice.ai.",
+    tags: ["ai-agents", "developer-tools", "open-source"],
+    stars: 6000,
+    language: "TypeScript",
+    author: "TraderAlice",
+    analyzedBy: "Bony",
+    curatedAt: "2026-07-15",
+    whereToFind: {
+      url: "https://github.com/TraderAlice/OpenAlice",
+      extra: "Site oficial: https://openalice.ai — docs, Discord e instaladores macOS",
+    },
+    howToUse:
+      "Roda local com pnpm:\n\n```bash\ngit clone https://github.com/TraderAlice/OpenAlice.git\ncd OpenAlice\npnpm install\npnpm dev\n```\n\nAbre `http://localhost:5173`. O desktop empacotado inclui runtime Pi gerenciado. Source/Docker precisam de pelo menos um agent CLI instalado (claude, codex, opencode, ou pi).\n\nFluxo básico:\n\n1. **Ask Alice** — faz pergunta de mercado, overview de empresa, scan de setor\n2. **Track entities** — salva ativos, teses, setores como [[wikilinks]]\n3. **Create issue** — transforma pesquisa em tarefa markdown com schedule\n4. **Schedule** — define quando o agente deve rodar\n5. **Read Inbox** — resultado chega como report durável\n\nPra trading real: configure broker em Settings → Unified Trading Account. Use simulator/paper primeiro. Operações seguem o modelo \"Trading as Git\" — stage, commit, review, push.",
+    whenToUse:
+      "Usa OpenAlice quando você:\n\n- Quer um agente de IA que faça research de mercado contínuo (não one-shot)\n- Precisa de um sistema de trading com approval gate (agente sugere, humano aprova)\n- Quer acompanhar múltiplos ativos/classes (equities, crypto, forex, commodities) num lugar só\n- Já usa Claude Code, Codex, OpenCode ou Pi e quer expandir pra trading\n- Valoriza local-first: dados, credenciais e estratégias não saem da tua máquina\n- Quer um workflow auditável (git history de todas as operações)\n\nNão use se: você quer trade automatizado sem supervisão humana (não é o propósito), ou se precisa de alta frequência/latência ultrabaixa (não é o caso).\n\nPra quem já vive no terminal com coding agents e quer entrar em trading com IA, OpenAlice é a ponte perfeita — usa as mesmas ferramentas, mesmos fluxos, só muda o domínio.",
+    opinion:
+      "Nando, esse repo é **absurdo**. Não pelo código em si (que é sólido: TypeScript, Electron, monorepo bem estruturado), mas pela **tese**. Eles pegaram a pergunta certa: 'se coding agents funcionam tão bem, por que não funcionam pra trading?' E a resposta é genial: porque trading não tem git, issues, workspaces. O OpenAlice cria exatamente essa camada.\n\nO modelo **Trading as Git** é o tipo de ideia que faz você pensar 'por que ninguém fez isso antes?'. Stage, commit, review, push pra operações financeiras — é tão óbvio e tão bem executado que dói. O agente não sai disparando ordem; ele prepara, você revisa, aprova. Isso resolve o maior problema de AI trading: confiança.\n\n6k estrelas em beta (0.80) é sinal claro de product-market fit. O fato de rodar local, sem cloud, com credenciais seladas em `~/.openalice`, mostra que os autores entenderam o usuário (ninguém quer mandar chave de broker pra nuvem alheia).\n\nPra nós do ecossistema Hermes: imagina um agente Clide configurado com workspace OpenAlice, fazendo scan de setor, gerando tese, e entregando no Inbox. Ou a Dora integrando alertas de mercado no WhatsApp. As possibilidades são enormes — e o repo já tem 966 forks explorando exatamente isso.",
+    saasIdeas: [
+      "Newsletter premium gerada por IA — agente OpenAlice faz scan diário de setores, gera tese e entrega como newsletter paga com análise proprietária",
+      "Copilot de trade pra plataformas existentes — plugin que integra OpenAlice com Profit, Nelógica, TradeView, sugerindo entradas com approval gate",
+      "Fundo quant público — abre um clube de investimento onde as operações são sugeridas por IA, votadas por humanos, e executadas via OpenAlice com transparência total (git público)",
+    ],
+    relatedRepos: [],
+    docsUrl: "https://openalice.ai/docs",
+  },
 ];
 
 
