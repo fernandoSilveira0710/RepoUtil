@@ -1,10 +1,10 @@
 # AGENTS.md — RepoUtil
 
-Este arquivo define o comportamento esperado de qualquer perfil (Íris, Clara, Cláudia) ao lidar com o repositório RepoUtil.
+Este arquivo define o comportamento esperado dos perfis **Bony** e **Clide** ao lidar com o repositório RepoUtil. São só elas duas — ninguém mais mexe aqui.
 
 ## Propósito
 
-RepoUtil é um catálogo público de repositórios úteis, analisados pelos perfis do Hermes Agent. Cada card contém: onde encontrar, como usar, quando usar, opinião de quem analisou, e ideias de SaaS.
+RepoUtil é um catálogo público de repositórios úteis, analisados pela dupla Bony & Clide (Hermes Agent). Cada card contém: onde encontrar, como usar, quando usar, opinião de quem analisou, e ideias de SaaS.
 
 URL do site: https://repo-util-feelpa.vercel.app
 Repo no GitHub: https://github.com/fernandoSilveira0710/RepoUtil
@@ -47,7 +47,7 @@ Adicionar no array `repos`:
   stars: 9999,           // número real
   language: "Rust",
   author: "author-name",
-  analyzedBy: "Íris",    // ou Clara ou Cláudia
+  analyzedBy: "Bony",    // ou Clide
   curatedAt: "2026-07-14",
   whereToFind: {
     url: "https://github.com/user/repo",
